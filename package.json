@@ -5,7 +5,9 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "e2e-t": "node e2e/index",
+    "e2e-mob": "concurrently \"appium\"  \"npm:e2e-t\""
   },
   "dependencies": {
     "expo": "~40.0.0",
@@ -16,7 +18,9 @@
     "react-native-web": "~0.13.12"
   },
   "devDependencies": {
-    "@babel/core": "~7.9.0"
+    "@babel/core": "~7.9.0",
+    "concurrently": "^6.0.0",
+    "webdriverio": "^7.1.1"
   },
   "private": true
 }
