@@ -1,7 +1,7 @@
   
 const path = require('path');
 
-const iosAppAbsPath = path.normalize(`${__dirname}/../ipas/ci-proto.ipa`);
+const iosAppAbsPath = path.normalize(`${__dirname}/../ipas/ci-proto.app`);
 const simulator = 'iPhone 11';
 
 const configuration = {

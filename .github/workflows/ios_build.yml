@@ -38,20 +38,16 @@ jobs:
       - name: Create artifacts folder
         run: mkdir -p ipas
       - name: Save artifacts
-        run: curl "$(expo url:ipa --non-interactive)" -o ipas/ci-proto.ipa
+        run: curl "$(expo url:ipa --non-interactive)" -o ipas/ci-proto.tar.gz
       - name: Unizip ipa
-        run: tar -xvzf ipas/ci-proto.ipa
-      - name: Unizip ipa
-        run: tar -xvzf ipas/ci-proto.ipa
-      - name: Unizip ipa
-        run: cd ipas/ && ls
-      # - uses: actions/upload-artifact@v2
-      #   with:
-      #     name: ios-builds
-      #     path: ipas/
-      # - name: Install appium 
-      #   run: npm install -g appium appium-doctor
+        run: tar -xvzf ipas/ci-proto.tar.gz -C ./ipas
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ios-builds
+          path: ipas/
+      - name: Install appium 
+        run: npm install -g appium appium-doctor
       # - name: Run apium checks
       #   run: appium-doctor --ios
-      # - name: Run apium tests
-      #   run: yarn e2e-mob
+      - name: Run apium tests
+        run: yarn e2e-mob
