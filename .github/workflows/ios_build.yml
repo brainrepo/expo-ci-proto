@@ -35,7 +35,7 @@ jobs:
       - name: Create artifacts folder
         run: mkdir -p ipas
       - name: Save artifacts
-        run: curl "$(expo url:ipa --non-interactive)" -o ipas/${CI_PROJECT_NAME}-${TAG}.ipa
+        run: curl "$(expo url:ipa --non-interactive)" -o ipas/ci-proto.ipa
       - uses: actions/upload-artifact@v2
         with:
           name: ios-builds
